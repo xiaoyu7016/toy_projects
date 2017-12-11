@@ -6,11 +6,16 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 
+import importlib
+import myutils;importlib.reload(myutils);
+
 comments = pd.read_csv("../data/clean_comments.txt",sep="|",index_col=0)
 comments.columns = ['raw']
 
 names = ['maki','kokichi','rantaro','ryoma','gonta','kaito','kibo','himiko','kaede', 'shuichi','miu','tsumugi','korekiyo','kirumi','tenko','angie']
-comments['word_list'] = comments['raw'].map(lambda x: re.split('[^a-z]',str(x).lower()))
+comments['raw_norm'] = comments['raw'].map(myutils.normalize_names)
+comments['word_list'] = comments['raw_norm'].map(lambda x: re.split('[^a-z]',x))
+
 for name in names:
     comments[name] = comments['word_list'].map(lambda x: int(name in x))
 
@@ -48,7 +53,7 @@ rects = ax.bar(ind+0.5,ranking.values,bar_widths,color='black')
 ax.set_xlim([-0,16])
 ax.set_xticks(ticks)
 ax.set_xticklabels([name.title() for name in names])
-ax.set_ylim([0,60])
+ax.set_ylim([0,70])
 ax.set_yticks([])
 
 # change bar width from coordinate system to display system
