@@ -8,7 +8,7 @@ Just finished Danganronpa V3 and wanted to see what other players feel about the
    a. Get a fancy bar char with character avartars on the axis (check)  
    b. Normalize the names and re-run 2. (check)
 
-## Scope expanded too much and was never done :)
+## Ideas beyond original scope and was never done :)
 3. Break down each bar with positive/negative comments.
 4. It would be interesting to visually compare US and Japanese polarity
      https://www.reddit.com/r/danganronpa/comments/5xw14h/ndrv3_popularity_japanese_poll/
